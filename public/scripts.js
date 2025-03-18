@@ -1,4 +1,13 @@
-const socket = io("http://localhost:3000");
+const { query } = require("express");
+
+const socket = io("http://localhost:3000", {
+    auth: {
+        secret: "This is a secret"
+    },
+    query: {
+        meaningOfLife: 42
+    }
+});
 
 const form = document.getElementById('form');
 const input = document.getElementById('input');
